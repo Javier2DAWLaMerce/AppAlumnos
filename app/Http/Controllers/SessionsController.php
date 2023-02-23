@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Dotenv\Exception\ValidationException;
+
 use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
 
 class SessionsController extends Controller
 {
