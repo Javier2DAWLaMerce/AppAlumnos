@@ -3,6 +3,7 @@
 use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RegistreController;
+use App\Http\Controllers\SessionsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -46,5 +47,8 @@ Route::get('/registre',[RegistreController::class,'registreCreate'])->middleware
 
 Route::post('/registre',[RegistreController::class,'registreCreatePost'])->name('registreCreatePost');
 
+Route::post('/logout',[SessionsController::class, 'destroy'])->middleware('auth');//Creamos una ruta para hacer el logout, teniendo en cuenta que debe ser un usuario
+//registrado, ahora crearemos el metodo pertinente 'destroy' en el controller indicado, en este caso el SessionsController
+Route::get('login', [SessionsController::class, 'create'])->middleware('guest');//SE crea la ruta para la vista del formulario de inicio de session para usuarios registrados
 
-
+Route::post('login', [SessionsController::class,'store'])->middleware('guest');// se crea la ruta para entrar a la aplicacion si el metodo store valida el formulario create

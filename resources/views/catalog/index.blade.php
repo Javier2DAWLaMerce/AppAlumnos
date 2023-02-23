@@ -51,5 +51,11 @@
                     </tr>
                 @endforeach{{-- Debemos cerrar el foreach --}}
         </table>
+        <div x-data="{ show: true }" x-init="setTimeout(() => show = false, 4000)" x-show="show"
+            class="fixed bg-blue-500 text-white py-2 px-4 rounded-x1 bottom-3 right-3 text-sm">
+            <p>
+                <!-- con el codigo de arriga x-data....x-show hacemos que el mensaje dure 4 segundos en pantalla -->
+                {{ session('inicioSesion') }}
+            </p>
     </div>
 @endsection
