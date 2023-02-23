@@ -21,12 +21,19 @@
             <div class="mt-8 md:mt-0 flex items-center">
                 <!--De esta manera hacemos que solo veras este link si eres invitado
                     en el caso que se lo quisieramos ocutar a un registrado sería arroba auth-->
-                @guest 
-                <a href="/registre" class="text-xs font-bold uppercase ">
-                    Registre
-                </a>
+                @guest
+                    <a href="/registre" class="text-xs font-bold uppercase ">
+                        Registre
+                    </a>
                 @endguest
-
+                @auth
+                    <!-- De esta manera mostramos al usuario ya registrado su nombre en vez de enseñar el link "Registro"-->
+                    <span class="text-xs font-bold uppercase ">Hola, {{ auth()->user()->name }}</span>
+                    <form action="/logout" method="POST" id="logout-form" class="text-xs font-bold ml-4 text-blue-700">
+                        @csrf
+                        <button type="submit">Sortir</button>
+                    </form>
+                @endauth
                 <a href="/login" class="ml-6 text-xs font-bold uppercase ">
                     Login
                 </a>
