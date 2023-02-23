@@ -4,6 +4,7 @@ use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RegistreController;
 use App\Http\Controllers\SessionsController;
+use App\Http\Controllers\UsuarisController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -52,3 +53,5 @@ Route::post('/logout',[SessionsController::class, 'destroy'])->middleware('auth'
 Route::get('login', [SessionsController::class, 'create'])->middleware('guest');//SE crea la ruta para la vista del formulario de inicio de session para usuarios registrados
 
 Route::post('login', [SessionsController::class,'store'])->middleware('guest');// se crea la ruta para entrar a la aplicacion si el metodo store valida el formulario create
+
+Route::get('admin/usuaris/create',[UsuarisController::class,'create'])->middleware('admin');//el acceso será controlado antes por el middleware que hemos creado que por el controlador, que es lo logico estructuralemtne hablando
