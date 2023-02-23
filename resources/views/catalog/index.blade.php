@@ -1,8 +1,20 @@
-@extends('layouts.master')
+@extends('layouts.app')
 
 @section('content')
     <div class="row">
-       
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+               
+        
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                     
+                            <a class="nav-link" href="{{ route('create') }}">
+                                <span>&#10010;</span>Alumne
+                            </a>
+                    
+                </div>
+        </nav>
+
         <table class="table">
             <thead class="thead-dark">
                 <tr>
@@ -57,5 +69,5 @@
                 <!-- con el codigo de arriga x-data....x-show hacemos que el mensaje dure 4 segundos en pantalla -->
                 {{ session('inicioSesion') }}
             </p>
-    </div>
-@endsection
+        </div>
+    @endsection

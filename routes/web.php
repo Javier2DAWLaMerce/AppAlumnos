@@ -25,17 +25,17 @@ Route::get('/', [HomeController::class, 'home'])->name('home');
 
 
 
-Route::get('/catalog', [CatalogController::class, 'index'])->name('index');
+Route::get('/catalog', [CatalogController::class, 'index'])->name('index')->middleware('guest');
 
-Route::get('/catalog/edit/{id}',[CatalogController::class,'edit'])->name('edit');
+Route::get('/catalog/edit/{id}',[CatalogController::class,'edit'])->name('edit')->middleware('auth');
 
-Route::post('/catalog/edit/{id}',[CatalogController::class,'editPost'])->name('editPost');
+Route::post('/catalog/edit/{id}',[CatalogController::class,'editPost'])->name('editPost')->middleware('auth');
 
-Route::get('/catalog/delete/{id}',[CatalogController::class,'deleteGet'])->name('deleteGet');
+Route::get('/catalog/delete/{id}',[CatalogController::class,'deleteGet'])->name('deleteGet')->middleware('auth');
 
-Route::get('/catalog/create',[CatalogController::class,'create'])->name('create');
+Route::get('/catalog/create',[CatalogController::class,'create'])->name('create')->middleware('auth');
 
-Route::post('/catalog/create',[CatalogController::class,'createPost'])->name('createPost');
+Route::post('/catalog/create',[CatalogController::class,'createPost'])->name('createPost')->middleware('auth');
 
 
 

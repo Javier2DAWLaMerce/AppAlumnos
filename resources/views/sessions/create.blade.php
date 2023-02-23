@@ -5,7 +5,7 @@
         <div class="border border-gray-200 p-6 rounded-xl">
             <h1 class="text-center font-bold text-xl">Accés amb credencials</h1>
 
-            <form method="GET" action="/login" class="mt-10">
+            <form method="POST" action="/login" class="mt-10">
                 @csrf
                 <div class="mt-6">
                     <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for=email"">Email
